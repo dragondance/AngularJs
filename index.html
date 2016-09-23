@@ -5,23 +5,15 @@
 	</head>
 	<body>
 		<h1>Hola AngularJS!</h1>
-		<p ng-init="nombre='mundo'">Hola, {{nombre}}</p>
+		<p>
+			Tu nombre:
 
-		<p><span ng-repeat="num in [1,2,3,4]">{{num}}</span></p>
+			<input type="text" ng-model="nombre" />
+		</p>
 
-		<ul>
-			<li ng-repeat="num in [10,20,30,40]">
-				[{{ $index }}] = {{ num }} => Posición
-
-				{{ $first ? ' primera '
-
-				: $middle ? ' media '
-
-				: ' final ' }}
-
-				{{ $even ? 'y par' : 'e impar' }}
-			</li>
-		</ul>
+		<p>
+			Hola, {{ nombre }}.
+		</p>
 	</body>
 	<footer>
 		<script src="vendor/angular.js"></script>
