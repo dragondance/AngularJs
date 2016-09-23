@@ -8,6 +8,20 @@
 		<p ng-init="nombre='mundo'">Hola, {{nombre}}</p>
 
 		<p><span ng-repeat="num in [1,2,3,4]">{{num}}</span></p>
+
+		<ul>
+			<li ng-repeat="num in [10,20,30,40]">
+				[{{ $index }}] = {{ num }} => Posición
+
+				{{ $first ? ' primera '
+
+				: $middle ? ' media '
+
+				: ' final ' }}
+
+				{{ $even ? 'y par' : 'e impar' }}
+			</li>
+		</ul>
 	</body>
 	<footer>
 		<script src="vendor/angular.js"></script>
