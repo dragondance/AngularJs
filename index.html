@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="miApp">
 	<head>
 		<title>Curso Angular JS</title>
 	</head>
 	<body>
-		<h1>Hola AngularJS!</h1>
-		<p>
-			Tu nombre:
-
-			<input type="text" ng-model="nombre" />
-		</p>
-
-		<p>
-			Hola, {{ nombre }}.
-		</p>
+	<div ng-controller="AppContrller as appCtrl">Hola, {{appCtrl.nombre}}</div>
+		
 	</body>
 	<footer>
 		<script src="vendor/angular.js"></script>
+
+		<script src="app/app.module.js"></script>
+		<script src="app/appCtrl.js"></script>
 	</footer>
 </html>
