@@ -1,7 +1,8 @@
 (function(){
 	angular
 		.module("miApp")
-		.controller("AppController", AppController);
+		.controller("AppController", AppController)
+		.config(ConfigureRoutes);
 
 	AppController.$inject = ["$scope", "$http"];
 
@@ -21,4 +22,26 @@
 			vm.contador ++;
 		};
 	}
+
+	function ConfigureRoutes ($stateProvider, $urlRouterProvider) {
+		$stateProvider
+
+		.state({
+			name: "public",
+
+			url: "/public",
+
+			templateUrl: "public.html"
+		})
+
+		.state({
+			name: "private",
+
+			url: "/private",
+
+			templateUrl: "private.html"
+		});
+
+		$urlRouterProvider.otherwise("/public");
+	};
 })();

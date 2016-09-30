@@ -4,7 +4,19 @@
 		<title>Curso Angular JS</title>
 	</head>
 	<body>
-	<div ng-controller="AppController as appCtrl">Hola, {{appCtrl.nombre}}</div>
+	<div ng-controller="AppController as appCtrl">
+		<ul>
+			<li>
+				<a ui-sref="public">Home</a>
+			</li>
+
+			<li>
+				<a ui-sref="private">Private</a>
+			</li>
+		</ul>
+
+		<div ui-view></div>
+	</div>
 		
 	</body>
 	<footer>
