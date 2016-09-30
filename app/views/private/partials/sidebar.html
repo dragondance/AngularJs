@@ -1,0 +1,51 @@
+<ul class="nav">
+	<li>
+		<a href data-toggle="offcanvas" class="visible-xs text-center">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</li>
+</ul>
+
+<ul class="nav hidden-xs" id="lg-menu">
+	<li ui-sref-active="active">
+		<a href>
+			<span class="glyphicon glyphicon-list"></span> Todos
+		</a>
+	</li>
+	<li ui-sref-active="active">
+		<a href>
+			<span class="glyphicon glyphicon-home"></span> Mi perfil
+		</a>
+	</li>
+	<li>
+		<a href>
+			<span class="glyphicon glyphicon-refresh"></span> Refrescar
+		</a>
+	</li>
+</ul>
+
+
+<ul class="list-unstyled hidden-xs" id="sidebar-footer">
+	<li>
+		<h3>caralibro</h3>
+	</li>
+</ul>
+
+<!-- Tiny sidebar (mobile) -->
+<ul class="nav visible-xs" id="xs-menu">
+	<li ui-sref-active="active">
+		<a ui-sref="private.all" class="text-center">
+			<span class="glyphicon glyphicon-list"></span>
+		</a>
+	</li>
+	<li ui-sref-active="active">
+		<a ui-sref="private.me" class="text-center">
+			<span class="glyphicon glyphicon-home"></span>
+		</a>
+	</li>
+	<li ui-sref-active="active">
+		<a href ng-click="privateCtrl.refresh()" class="text-center">
+			<span class="glyphicon glyphicon-refresh"></span>
+		</a>
+	</li>
+</ul>

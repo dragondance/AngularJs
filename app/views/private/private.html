@@ -1,0 +1,28 @@
+<div class="box">
+	<div class="row row-offcanvas row-offcanvas-left">
+
+		<!-- Sidebar menu -->
+		<div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+			<div class="fix-sidebar" ng-include="'app/views/private/partials/sidebar.html'"></div>
+		</div>
+
+		<!-- Main column -->
+		<div class="column col-sm-10 col-xs-11" id="main">
+
+			<!-- Top nav -->
+			<div class="fix-navbar" ng-include="'app/views/private/partials/navbar.html'"></div>
+
+			<div class="padding">
+				<div class="full col-sm-9">
+
+					<!-- Contenido dinámico -->
+					<div ui-view autoscroll></div>
+
+					<!-- Footer -->
+					<div ng-include="'app/views/footer.html'"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

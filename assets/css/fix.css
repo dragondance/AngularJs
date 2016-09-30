@@ -1,0 +1,57 @@
+/* Ancho de la navbar */
+div[ng-include].fix-navbar
+{
+    width: inherit;
+}
+
+/* Ancho de la navbar en móviles */
+@media screen and (max-width: 768px)
+{
+    div[ng-include].fix-navbar
+    {
+        width: auto;
+    }
+}
+
+/* Ancho de los elementos de la sidebar */
+div[ng-include].fix-sidebar
+{
+    width: 100%;
+}
+
+/* Pequeño margen en el botón de perfil */
+.navbar-right
+{
+    margin-right: 10px;
+}
+
+/* Cambiar elementos i.glyphicon por span.glyphicon */
+.modal-footer span, .well span
+{
+    font-size:20px;
+    color:#c0c0c0;
+}
+
+/* Active section */
+#lg-menu > .active, #xs-menu > .active
+{
+    background-color:#333 !important;
+}
+
+/* Lista de followers/following */
+.follow-list img
+{
+    margin: 3px 0px;
+}
+
+/* Nombre de la app en pantalla login */
+.brand-login, .brand-login:hover, .brand-login:active, .brand-login:focus
+{
+    color: white;
+}
+
+/* Para que las imágenes no queden tan grandes... */
+.post-photo > img
+{
+    max-height: 300px;
+}

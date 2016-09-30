@@ -1,0 +1,51 @@
+<div class="row">
+
+	<!-- User personal information -->
+	<div class="col-sm-5">
+
+		<div class="panel panel-default">
+			<div class="panel-thumbnail">
+				<img src="assets/images/none.png" class="img-responsive center-block">
+			</div>
+			<div class="panel-body">
+				<p class="lead">Leandro Gao</p>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<button class="btn pull-right btn-default">Editar</button>
+				<button class="btn pull-right btn-primary">Guardar</button>
+				<h4><span class="glyphicon glyphicon-user"></span> Sobre mi</h4>
+			</div>
+			<div class="panel-body">
+				<span>
+					Me gusta AngularJS.
+				</span>
+			</div>
+			<div class="panel-body">
+				<textarea class="form-control" rows="10">&lt;Zona para editar el estado&gt;</textarea>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Posts from user -->
+	<div class="col-sm-7">
+
+		<div class="well">
+			<form class="form-horizontal" role="form">
+				<h4>Qué hay de nuevo</h4>
+				<div class="form-group" style="padding:14px;">
+					<textarea class="form-control"
+					          placeholder="Actualiza tu estado..." required></textarea>
+				</div>
+				<button class="btn btn-primary pull-right" type="submit">Publicar</button>
+			</form>
+		</div>
+
+		<!-- En un futuro, será una directiva... -->
+		<!--<div ng-include="'app/views/private/all.html'" ng-controller="AllPostsController as allCtrl"></div>-->
+
+	</div>
+</div>
