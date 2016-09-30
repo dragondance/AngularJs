@@ -1,6 +1,6 @@
 (function(){
 	angular
-		.app.module("miApp")
+		.module("miApp")
 		.controller("AppController", AppController);
 
 	AppController.$inject = ["$scope", "$http"];
@@ -14,13 +14,8 @@
 		vm.incrementar = incrementar;
 		vm.nombre = "Pepe";
 
-		activate();
-
 		//Privado
 		//Definicion de funciones
-		function activate(){ //Como el constructor;
-			goSpeakers();
-		}
 
 		function incrementar(){
 			vm.contador ++;
