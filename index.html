@@ -25,7 +25,7 @@
 <div class="wrapper">
 
 	<!-- Contenido -->
-	<div ng-include="'app/views/public/public.html'"></div>
+	<div ui-view></div>
 
 </div>
 
@@ -34,7 +34,8 @@
 <script src="vendor/angular-ui-router-0.3.1.js"></script>
 
 <!-- App 'caralibro' -->
-<script scr="app/app.module.js"></script>
+<script src="app/app.module.js"></script>
+<script src="app/app.routes.js"></script>
 
 </body>
 </html>
