@@ -17,6 +17,8 @@
 					name: "public.register"
 					, url: "/register"
 					, templateUrl: "app/views/public/register.html"
+					, controller: "RegisterController"
+					, controllerAs: "registerCtrl"
 				})
 
 			//segun el papa poner la funcion a parte

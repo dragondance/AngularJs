@@ -6,7 +6,6 @@
 		LoginController.$inject = [];
 
 		function LoginController(){
-			console.log("holaaaaaaa");
 			var ctrl = this;
 
 			ctrl.loginUser = { }; //username, password

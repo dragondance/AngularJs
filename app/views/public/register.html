@@ -1,13 +1,11 @@
 <div class="well">
-
 	<div class="row">
-
 		<div class="col-sm-4">
 			<img src="assets/images/social.jpg" class="center-block img-thumbnail">
 		</div>
 
 		<div class="col-sm-8">
-			<form>
+			<form ng-submit="registerCtrl.doRegister()">
 
 				<h2>¡Regístrate en <em>caralibro</em>!</h2>
 				<br/>
@@ -15,33 +13,31 @@
 				<h3>Información personal</h3>
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Nombre" required>
+					<input type="text" class="form-control" placeholder="Nombre" required ng-model="registerCtrl.newUser.name">
 				</div>
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Apellidos" required>
+					<input type="text" class="form-control" placeholder="Apellidos" required ng-model="registerCtrl.newUser.surnames">
 				</div>
 
 				<h3>Información de acceso</h3>
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Usuario" required>
+					<input type="text" class="form-control" placeholder="Usuario" required ng-model="registerCtrl.newUser.username">
 				</div>
 
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="Contraseña" required minlength="6">
+					<input type="password" class="form-control" placeholder="Contraseña" required minlength="6" ng-model="registerCtrl.newUser.password">
 				</div>
 
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="Repetir contraseña" required minlength="6">
+					<input type="password" class="form-control" placeholder="Repetir contraseña" required minlength="6" ng-model="registerCtrl.newUser.password2">
 				</div>
 
 				<button type="submit" class="btn btn-primary pull-right">Registrarse</button>
+				{{registerCtrl.newUser}}
 				<div class="clearfix"></div>
-
 			</form>
 		</div>
-
 	</div>
-
 </div>
