@@ -1,20 +1,31 @@
-<h2>Resultados de la búsqueda "<em>query</em>"</h2>
+<h2>Resultados de la búsqueda "<em>{{ searchCtrl.query }}</em>"</h2>
 <br/>
 
 <div class="row">
 
-	<div class="col-md-3 col-sm-4 col-xs-6">
+	<div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="user in searchCtrl.userList">
 		<div class="panel panel-default">
+
 			<div class="panel-thumbnail">
-				<a href>
-					<img src="assets/images/none.png"class="img-responsive center-block">
+				<a ui-sref="private.profile({userId:user.id})">
+
+					<img ng-if="user.get('photo')"
+					     ng-src="{{ user.get('photo').url() }}"
+					     class="img-responsive center-block">
+
+					<img ng-if="!user.get('photo')"
+					     src="assets/images/none.png"
+					     class="img-responsive center-block">
+
 				</a>
 			</div>
+
 			<div class="panel-body">
-				<a href class="lead">
-					Leandro Gao
+				<a ui-sref="private.profile({userId:user.id})" class="lead">
+					{{ user.name }} {{ user.surnames }}
 				</a>
 			</div>
+
 		</div>
 	</div>
 

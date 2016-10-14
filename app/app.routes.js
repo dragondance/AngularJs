@@ -1,36 +1,87 @@
-(function(){
+(function () {
+
 	angular
 		.module("caralibro")
 		.config(ConfigureRoutes);
 
-		ConfigureRoutes.$inject = ["$stateProvider", "$urlRouterProvider"];
+	ConfigureRoutes.$inject = ["$stateProvider", "$urlRouterProvider"];
+	function ConfigureRoutes ($stateProvider, $urlRouterProvider)
+	{
+		$stateProvider
 
-		function ConfigureRoutes($stateProvider, $urlRouterProvider){
-			$stateProvider
-				.state({
-					name: "public"
-					, abstract: true
-					, templateUrl: "app/views/public/public.html" 
-				})
+		// ===
+		// == Public
+			.state({
+				name: "public",
+				abstract: true,
+				templateUrl: "app/views/public/public.html",
+				controller: "PublicController",
+				controllerAs: "publicCtrl"
+			})
+			.state({
+				name: "public.register",
+				url: "/register",
+				templateUrl: "app/views/public/register.html",
+				controller: "RegisterController",
+				controllerAs: "registerCtrl"
+			})
 
-				.state({
-					name: "public.register"
-					, url: "/register"
-					, templateUrl: "app/views/public/register.html"
-					, controller: "RegisterController"
-					, controllerAs: "registerCtrl"
-				})
+			// ===
+			// == Private
+			.state({
+				name: "private",
+				abstract: true,
+				templateUrl: "app/views/private/private.html",
+				controller: "PrivateController",
+				controllerAs: "privateCtrl"
+			})
 
-			//segun el papa poner la funcion a parte
-			$urlRouterProvider.otherwise(function($injector){
-				//devuelve la # delante en el return 
-				//hay que poner el slice(1) para evitar esto
-				var $state = $injector.get("$state"); 
-				var urlOri = $state.href("public.register");
+			// Self profile
+			.state({
+				name: "private.me",
+				url: "/me",
+				templateUrl: "app/views/private/profile.html",
+				controller: "ProfileController",
+				controllerAs: "profileCtrl"
+			})
 
-				console.log(urlOri);
+			// Profiles
+			.state({
+				name: "private.profile",
+				url: "/profile/{userId}",
+				templateUrl: "app/views/private/profile.html",
+				controller: "ProfileController",
+				controllerAs: "profileCtrl"
+			})
+			.state({
+				name: "private.search",
+				url: "/search?query",
+				templateUrl: "app/views/private/search.html",
+				controller: "SearchController",
+				controllerAs: "searchCtrl"
+			})
 
-				return $state.href("public.register").slice(1);
+			// Posts
+			.state({
+				name: "private.all",
+				url: "/all",
+				templateUrl: "app/views/private/all.html",
+				controller: "AllPostsController",
+				controllerAs: "allCtrl"
 			});
-		}
+
+
+		$urlRouterProvider.otherwise(function ($injector)
+		{
+			var $state = $injector.get("$state");
+
+			var originalUrl = $state.href("public.register");
+			var urlToGo = originalUrl.slice(1);
+
+			console.log("URLS:", originalUrl, urlToGo);
+
+			return urlToGo;
+		});
+	}
+
 })();

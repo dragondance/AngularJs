@@ -8,23 +8,38 @@
 				<img src="assets/images/none.png" class="img-responsive center-block">
 			</div>
 			<div class="panel-body">
-				<p class="lead">Leandro Gao</p>
+				<!-- FIXME -->
+				<p class="lead">{{ profileCtrl.user.name }} {{ profileCtrl.user.surnames }}</p>
 			</div>
 		</div>
 
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<button class="btn pull-right btn-default">Editar</button>
-				<button class="btn pull-right btn-primary">Guardar</button>
+				<!-- FIXME -->
+				<button class="btn pull-right"
+				        ng-class="{
+				            'btn-primary' : profileCtrl.isEditingAbout,
+				            'btn-default' : !profileCtrl.isEditingAbout
+				        }"
+						ng-show="profileCtrl.isMyProfile"
+						ng-click="profileCtrl.doEditAbout()">
+					{{ profileCtrl.isEditingAbout ? "Guardar" : "Editar" }}
+				</button>
 				<h4><span class="glyphicon glyphicon-user"></span> Sobre mi</h4>
 			</div>
-			<div class="panel-body">
-				<span>
-					Me gusta AngularJS.
+			<!-- FIXME -->
+			<div class="panel-body" ng-if="!profileCtrl.isEditingAbout">
+				<!-- FIXME New span -->
+				<span ng-hide="profileCtrl.user.about">
+					<em>No hay descripción.</em>
+				</span>
+				<span ng-show="profileCtrl.user.about">
+					{{ profileCtrl.user.about }}
 				</span>
 			</div>
-			<div class="panel-body">
-				<textarea class="form-control" rows="10">&lt;Zona para editar el estado&gt;</textarea>
+			<div class="panel-body" ng-if="profileCtrl.isEditingAbout">
+				<textarea class="form-control" rows="10"
+				          ng-model="profileCtrl.newAbout"></textarea>
 			</div>
 		</div>
 
@@ -32,20 +47,26 @@
 
 	<!-- Posts from user -->
 	<div class="col-sm-7">
-
-		<div class="well">
-			<form class="form-horizontal" role="form">
+		<!-- FIXME all binds -->
+		<div class="well" ng-if="profileCtrl.isMyProfile">
+			<form class="form-horizontal" role="form" ng-submit="profileCtrl.doCreatePost()">
 				<h4>Qué hay de nuevo</h4>
 				<div class="form-group" style="padding:14px;">
 					<textarea class="form-control"
-					          placeholder="Actualiza tu estado..." required></textarea>
+							  ng-model="profileCtrl.newPostMessage"
+							  placeholder="Actualiza tu estado..." required></textarea>
 				</div>
+
+				<cl-photo-reader>
+					<button class="btn btn-default"><span class="glyphicon glyphicon-camera"></span></button>
+				</cl-photo-reader>
+
 				<button class="btn btn-primary pull-right" type="submit">Publicar</button>
 			</form>
 		</div>
 
-		<!-- En un futuro, será una directiva... -->
-		<!--<div ng-include="'app/views/private/all.html'" ng-controller="AllPostsController as allCtrl"></div>-->
+				<!-- En un futuro, será una directiva... -->
+		<div ng-include="'app/views/private/all.html'" ng-controller="AllPostsController as allCtrl"></div>
 
 	</div>
 </div>

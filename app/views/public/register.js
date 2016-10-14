@@ -1,33 +1,45 @@
-(function(){
+(function () {
+
 	angular
 		.module("caralibro")
 		.controller("RegisterController", RegisterController);
 
-		RegisterController.$inject = ["UserService"];
+	RegisterController.$inject = ["$state", "UserService"];
+	function RegisterController ($state, UserService)
+	{
+		var ctrl = this;
 
-		function RegisterController(UserService){
-			var ctrl = this;
+		/**
+		 * Objeto para crear un nuevo usuario
+		 * @type {{username:string, surnames:string, name:string, password:string, password2:string}}
+		 */
+		ctrl.newUser = { };
+		ctrl.doRegister = doRegister;
 
-			ctrl.newUser = {}; //username, email, password, password2
-			ctrl.doRegister = doRegister;
 
-			///////////
+		///////////
 
-			function doRegister(){
-				console.log(ctrl.newUser);
-				//TODO Registrar usuario
-				//TODO Si success, navegar a private.me
-				UserService.register(ctrl.newUser).then(doRegisterComplete, doRegisterFailed);
 
-				function doRegisterComplete(response){
-					console.log("doRegisterComplete", response);
+		function doRegister ()
+		{
+			// TODO Check form data
 
-				}
+			UserService
+				.register(ctrl.newUser)
+				.then(doRegisterComplete, doRegisterFailed);
 
-				function doRegisterFailed(reason){
-					console.log("doRegisterFailed", reason);
+			function doRegisterComplete (user)
+			{
+				console.log("doRegisterComplete", user);
+				$state.go("private.me");
+			}
 
-				}
+			function doRegisterFailed (error)
+			{
+				console.error("doRegisterFailed", error);
+				// TODO Show on UI
 			}
 		}
+	}
+
 })();

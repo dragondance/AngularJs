@@ -1,5 +1,7 @@
 <div class="well">
+
 	<div class="row">
+
 		<div class="col-sm-4">
 			<img src="assets/images/social.jpg" class="center-block img-thumbnail">
 		</div>
@@ -13,31 +15,43 @@
 				<h3>Información personal</h3>
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Nombre" required ng-model="registerCtrl.newUser.name">
+					<input type="text" class="form-control"
+					       ng-model="registerCtrl.newUser.name"
+					       placeholder="Nombre" required>
 				</div>
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Apellidos" required ng-model="registerCtrl.newUser.surnames">
+					<input type="text" class="form-control"
+					       ng-model="registerCtrl.newUser.surnames"
+					       placeholder="Apellidos" required>
 				</div>
 
 				<h3>Información de acceso</h3>
 
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Usuario" required ng-model="registerCtrl.newUser.username">
+					<input type="text" class="form-control"
+					       ng-model="registerCtrl.newUser.username"
+					       placeholder="Usuario" required>
 				</div>
 
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="Contraseña" required minlength="6" ng-model="registerCtrl.newUser.password">
+					<input type="password" class="form-control"
+					       ng-model="registerCtrl.newUser.password"
+					       placeholder="Contraseña" required minlength="6">
 				</div>
 
 				<div class="form-group">
-					<input type="password" class="form-control" placeholder="Repetir contraseña" required minlength="6" ng-model="registerCtrl.newUser.password2">
+					<input type="password" class="form-control"
+					       ng-model="registerCtrl.newUser.password2"
+					       placeholder="Repetir contraseña" required minlength="6">
 				</div>
 
 				<button type="submit" class="btn btn-primary pull-right">Registrarse</button>
-				{{registerCtrl.newUser}}
 				<div class="clearfix"></div>
+
 			</form>
 		</div>
+
 	</div>
+
 </div>

@@ -1,4 +1,8 @@
-(function(){
+(function () {
+
 	angular
-		.module("caralibro", ["ui.router"]);
+		.module("caralibro", [
+			"ui.router"
+		]);
+
 })();

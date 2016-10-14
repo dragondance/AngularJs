@@ -1,17 +1,17 @@
 <h2>Todas las publicaciones</h2>
 <br/>
 
-<div class="panel panel-default">
+<div class="panel panel-default" ng-repeat="post in allCtrl.postList">
 
 	<!-- Author info -->
 	<div class="panel-heading">
 		<h4>
-			<a href>
+			<a ui-sref="private.profile({ userId: post.author.id })">
 				<img src="assets/images/none.png" width="28px" height="28px">
-				Leandro Gao
+				{{ post.author.name }} {{ post.author.surnames }}
 			</a>
-			<time class="small" datetime="">
-				Ahora mismo
+			<time class="small" datetime="{{ post.createdAt }}">
+				{{ post.createdAt }}
 			</time>
 		</h4>
 	</div>
@@ -19,17 +19,21 @@
 	<!-- Post message -->
 	<div class="panel-body">
 		<p>
-			¡Hola!
+			{{ post.message }}
 		</p>
 	</div>
 
 </div>
 
-<button class="btn btn-primary center-block">
+<button class="btn btn-primary center-block"
+        ng-if="allCtrl.hasMorePosts"
+        ng-click="allCtrl.doLoadMore()">
 	Cargar más
 </button>
 
-<button class="btn btn-danger center-block" disabled="disabled">
+<button class="btn btn-danger center-block"
+        ng-if="!allCtrl.hasMorePosts"
+        disabled="disabled">
 	<em>No hay más publicaciones.</em>
 </button>
 

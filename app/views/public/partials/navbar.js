@@ -1,22 +1,44 @@
-(function(){
+(function () {
+
 	angular
 		.module("caralibro")
 		.controller("LoginController", LoginController);
 
-		LoginController.$inject = [];
+	LoginController.$inject = ["$state", "UserService"];
+	function LoginController ($state, UserService)
+	{
+		var ctrl = this;
 
-		function LoginController(){
-			var ctrl = this;
+		/**
+		 * User object for login.
+		 * @type {{username: string, password: string}}
+		 */
+		ctrl.loginUser = {};
+		ctrl.doLogin = doLogin;
 
-			ctrl.loginUser = { }; //username, password
-			ctrl.doLogin = doLogin;
 
-			function doLogin(){
-				//TODO Atacar server
-				console.log("Login con:", ctrl.loginUser);
+		//////////
 
-				//TODO onSucess....
 
+		function doLogin ()
+		{
+			UserService
+				.login(ctrl.loginUser)
+				.then(doLoginComplete, doLoginFailed);
+				// FIX: No funciona catch porque nos devuelve una promesa de Parse y no de AngularJS...
+
+			function doLoginComplete (user)
+			{
+				console.log("doLoginComplete", user);
+				$state.go("private.me");
+			}
+
+			function doLoginFailed (error)
+			{
+				console.error("doLoginFailed", error);
+				// TODO Show on UI
 			}
 		}
+	}
+
 })();

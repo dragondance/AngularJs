@@ -21,27 +21,42 @@
 </head>
 <body>
 
-
 <div class="wrapper">
-
-	<!-- Contenido -->
 	<div ui-view></div>
-
 </div>
 
 <!-- JavaScript vendors -->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
 <script src="vendor/angular-1.5.8.js"></script>
 <script src="vendor/angular-ui-router-0.3.1.js"></script>
 <script src="vendor/parse-1.6.4.js"></script>
+
 <!-- App 'caralibro' -->
 <script src="app/app.module.js"></script>
+<script src="app/app.constant.js"></script>
 <script src="app/app.routes.js"></script>
 <script src="app/app.run.js"></script>
 
-<!-- Controllers -->
-<script src="app/views/public/partials/navbar.js"></script>
+<!-- Controladores -->
+<script src="app/views/public/public.js"></script>
 <script src="app/views/public/register.js"></script>
-<!-- Services -->
-<script src="app/servicios/UserService.js"></script>
+<script src="app/views/public/partials/navbar.js"></script>
+
+<script src="app/views/private/private.js"></script>
+<script src="app/views/private/all.js"></script>
+<script src="app/views/private/profile.js"></script>
+<script src="app/views/private/search.js"></script>
+
+<!-- Servicios -->
+<script src="app/services/UserService.js"></script>
+<script src="app/services/PostService.js"></script>
+
+<!-- Servicios -->
+<script src="app/directives/photoReader/clPhotoReader.js"></script>
+
 </body>
 </html>
